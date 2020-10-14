@@ -1,6 +1,6 @@
 # Validations performed by the add-on
 
-This is a complete list of validations performed by the Google Sheet add-on. You can find the full documentation [here]().
+This is a complete list of validations performed by the Google Sheet add-on. You can find the full documentation [here](https://docs.google.com/document/d/17WmRK_VsN6QrED7TRi4l3WRf3UdmlSp1-qqMMWakqhI/edit?usp=sharing).
 
 ### General
 
