@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    
+    <style>
+      body{
+        font-family: 'Roboto', sans-serif;
+      }
+      
+      a, a:link, a:visited, a:hover{
+        color:#047CC2;
+        text-decoration:none;
+        cursor: pointer;
+      }
+      
+      div.errorlogs, .errorlogs p{
+        color:#7F0000;
+      }
+      
+      .warninglogs{
+       color:#A06800;
+      }
+      
+      .good{
+        color:#005080;
+      }
+      
+      .errorlogs, .warninglogs, .good{
+        font-size:14px
+      }
+      
+      button{
+        overflow: visible;
+        outline: none;
+        cursor: pointer;
+        font-weight: 500;
+        border-radius: 3px;
+        border: 1px solid transparent;
+        box-shadow: inset 0 -1px 0 0 rgba(0,0,0,0.09);
+        display: inline-block;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+      }
+      
+      button.validate{
+        background-color: #047cc2;
+        border-color: #367fa9;
+        color: #fff;
+      }
+      
+      button.clear{
+        background-color: #ffffff;
+        border-color: #367fa9;
+        color: #000000;
+      }
+    </style>
+    <title>SurveyCTO form validation</title>
+    <script src="https://kit.fontawesome.com/4d1c517e44.js" crossorigin="anonymous" defer></script>
+    
+  </head>
+  
+  <? testingSidebar("Top of body"); ?>
+  <body>
+    <img id="top" width="58%" atl="SurveyCTO" src="https://www.surveycto.com/wp-content/uploads/2018/04/SurveyCTO-Logo-CMYK.png">
+    <p id="intro">Click the <i>Validate</i> button to check your script for errors.<br>
+      Click <a target="_blank" href="https://docs.google.com/document/d/17WmRK_VsN6QrED7TRi4l3WRf3UdmlSp1-qqMMWakqhI/edit?usp=sharing">here</a>
+      for the documentation.<br>
+      © 2020 Dobility, Inc
+    </p>
+    
+    <button class="validate" onclick="validate()">
+    <i class="fas fa-search"></i>
+    Validate</button>
+    <? if(showVer){ ?>
+    <button class="clear" onclick="clearSidebar()">Clear logs</button>
+    <? } ?>
+    
+    <p id="wait"></p>
+    
+    <? if(showVer){ ?>
+    <? testingSidebar("About to gather logs"); ?>
+    <div id="logs">
+      <?!= gatherLogs(); ?>
+    </div>
+    <? testingSidebar("Top link"); ?>
+    <p><a onclick="toTop()">Back to top</a></p>
+    <? testingSidebar("About to end"); ?>
+    <? } ?>
+    
+    <? testingSidebar("About to start the script"); ?>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+    function validate(){
+      var wait = document.getElementById('wait');
+      wait.innerHTML = "Validating, please wait...";
+      google.script.run.validation();
+      
+    }
+    
+    function clearSidebar(){
+    var wait = document.getElementById('wait');
+      wait.innerHTML = "Clearing, please wait...";
+      google.script.run.displaySidebar(false);
+    }
+    
+    function characterReplace(original, replacement){
+      google.script.run.characterReplace(original, replacement);
+    }
+    
+    function characterReplaceSpecial(original, replacement, od, rd){
+      google.script.run.characterReplaceSpecial(original, replacement, od, rd);
+    }
+    
+    function leSpaceRemover(){
+      google.script.run.leSpaceRemover();
+    }
+    
+    function toTop(){
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+    </script>
+    <? testingSidebar("Done with script"); ?>
+  </body>
+</html>
