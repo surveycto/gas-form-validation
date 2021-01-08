@@ -1,6 +1,6 @@
 # Google Sheet add-on for SurveyCTO spreadsheet form validation
 
-This repository stores the source code for the add-on you can use to validate your spreadsheet form definition in Google Sheets. For the full documentation, check out [this support article](https://docs.google.com/document/d/17WmRK_VsN6QrED7TRi4l3WRf3UdmlSp1-qqMMWakqhI/edit?usp=sharing). For a complete list of validations performed by the add-on, check out [this page](/extras/validations.md).
+This repository stores the source code for the add-on you can use to validate your spreadsheet form definition in Google Sheets. For the full documentation, check out [this support article](https://support.surveycto.com/hc/en-us/articles/360057418074). For a complete list of validations performed by the add-on, check out [this page](/extras/validations.md).
 
 The add-on was created using Google app scripts. Here is a list of the files used, which can all be found in the [source](/source/) folder:
 
